@@ -2,8 +2,6 @@
 
 ## An Explainable Multimodal Framework for Aspect-Based Sentiment Analysis using Image-to-Text Conversion and Aspect-Oriented Filtration
 
-**ACE Engineering College (Autonomous) | Department of Computer Science and Engineering | Major Project Stage - I**
-
 MABSA is an Explainable Multimodal Aspect-Based Sentiment Analysis framework designed to analyze customer opinions expressed through both **text and images**.
 
 Traditional sentiment analysis systems mainly focus on textual information and may miss important visual cues present in customer feedback. MABSA addresses this limitation by combining textual and visual information through **Image-to-Text Conversion, OCR, Image Captioning, Aspect-Oriented Filtration, and Aspect-Level Sentiment Classification**.
@@ -60,8 +58,8 @@ Processes textual reviews, images, or both together to obtain a more complete un
 
 ### Image-to-Text Conversion
 Extracts useful information from images using:
-- **Image Captioning** (BLIP) to describe the scene or product
-- **OCR** (EasyOCR) to read any text written inside the image
+- **Image Captioning** to describe the scene or product
+- **OCR** to read any text written inside the image
 
 ### Aspect-Oriented Filtration
 Keeps only the information relevant to the target aspect and reduces the influence of irrelevant content.
@@ -73,7 +71,7 @@ Determines the sentiment associated with each aspect:
 - Negative
 
 ### Explainable Results
-Provides interpretable results by connecting each aspect with its predicted sentiment and the evidence behind it.
+Provides interpretable results by connecting each aspect with its predicted sentiment.
 
 ---
 
@@ -82,8 +80,8 @@ Provides interpretable results by connecting each aspect with its predicted sent
 | Mode | Input | Description |
 |---|---|---|
 | Text only | Review text | Sentiment is predicted from the text |
-| Image only | Photo | Caption and OCR convert the image to text, then sentiment is predicted |
-| Text + Image | Review and photo | Text, caption, and OCR are combined, then sentiment is predicted |
+| Image only | Photo | Image-to-text conversion turns the image into text, then sentiment is predicted |
+| Text + Image | Review and photo | Text and visual information are combined, then sentiment is predicted |
 
 ---
 
@@ -103,73 +101,29 @@ flowchart TD
     H --> I
 ```
 
-**Steps**
-1. Take a review (text), an image, or both as input.
-2. Convert the image to text using BLIP captioning and EasyOCR.
-3. Combine the review text with the visual information.
-4. Filter the combined content by the target aspect.
-5. Classify the aspect-level sentiment.
-6. Generate an explainable result.
-
 ---
 
 ## Technologies and Tools
 
 | Category | Tools |
 |---|---|
-| Language | Python |
-| Deep Learning | PyTorch, Hugging Face Transformers |
-| Image-to-Text | BLIP (captioning), EasyOCR (OCR) |
-| Sentiment Model | RoBERTa-based classifier |
-| Data Handling | Pandas, NumPy, OpenCV, Pillow |
-| Development | Google Colab, VS Code, Git and GitHub |
-
----
-
-## Dataset
-
-**MVSA-Multiple**: a multimodal dataset of image-text pairs with sentiment labels (Positive, Neutral, Negative).
-
----
-
-## Getting Started
-
-### Run on Google Colab
-1. Open the notebook from this repository in Google Colab.
-2. Go to **Runtime > Change runtime type** and select **T4 GPU**.
-3. Run the cells from top to bottom.
-
-### Install dependencies
-```bash
-pip install transformers torch pillow requests easyocr
-```
-
-### Quick example
-```python
-# Text only
-analyze(text="Great camera, but the delivery was slow.", aspect="camera")
-
-# Image only
-analyze(image_path="sample.png")
-
-# Text + image
-analyze(text="The battery is terrible.", image_path="sample.png", aspect="battery")
-```
+| Technologies | Python, OpenCV, Pandas, NumPy |
+| Tools / Frameworks | Transformers / Hugging Face, Git & GitHub, VS Code |
+| Dataset | MVSA-Multiple Dataset |
 
 ---
 
 ## Current Status
 
-- [x] Image captioning (BLIP)
-- [x] OCR (EasyOCR)
+- [x] Image captioning
+- [x] OCR
 - [x] Three modes: text only, image only, text + image
 - [x] Basic aspect filtration and sentiment prediction
-- [ ] MVSA-Multiple dataset loading and cleaning
-- [ ] Captioning and OCR on the full dataset
-- [ ] Aspect-oriented attention-based filtration
-- [ ] Model fine-tuning and evaluation (Accuracy, Macro-F1)
-- [ ] Explainability (SHAP / LIME and natural-language explanations)
-- [ ] Demo UI (Streamlit / Gradio)
+- [ ] MVSA-Multiple dataset loading
+- [ ] Aspect-oriented filtration (improved)
+- [ ] Model training and evaluation
+- [ ] Explainable AI
+- [ ] Final demo
 
 ---
 
@@ -196,28 +150,3 @@ analyze(text="The battery is terrible.", image_path="sample.png", aspect="batter
 
 **SDG 9: Industry, Innovation and Infrastructure**
 Supports AI-driven innovation by enabling intelligent multimodal analysis for digital customer feedback.
-
----
-
-## Team (Batch 6)
-
-| Name | Roll No. |
-|---|---|
-| G. Jeevana | 23AG1A05E8 |
-| G. Sivakumar Reddy | 23AG1A05F1 |
-| B. Saikumar | 23AG1A05D6 |
-
-## Faculty
-
-| Role | Name |
-|---|---|
-| Project Guide | Dr. P Chiranjeevi, Professor |
-| Project Coordinator | Dr. S Raghu, Associate Professor |
-| HOS-CSE-C | Mr. V Chandra Sekhar Reddy, Associate Professor |
-| HOD, CSE Dept | Dr. Ch. Vijaya Kumar, Professor |
-
----
-
-## Repository
-
-[github.com/jeevana-049/MABSA](https://github.com/jeevana-049/MABSA)
