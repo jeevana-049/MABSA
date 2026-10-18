@@ -112,3 +112,35 @@ The MABSA framework follows the pipeline below:
                   |
                   v
         Explainable Result
+
+---
+
+## 🛠️ Technologies
+
+Python, PyTorch, Hugging Face Transformers (BLIP, RoBERTa), EasyOCR, Pandas, NumPy
+
+## 📊 Dataset
+
+MVSA-Multiple (image-text pairs with sentiment labels)
+
+## 🚀 Current Status
+
+- [x] Image captioning (BLIP)
+- [x] OCR (EasyOCR)
+- [x] Three modes: text only, image only, text + image
+- [x] Basic aspect filtration and sentiment prediction
+- [ ] MVSA-Multiple dataset loading
+- [ ] Model fine-tuning
+- [ ] Explainability (SHAP / LIME)
+- [ ] Demo UI (Streamlit / Gradio)
+
+## 👥 Team (Batch 6)
+
+| Name | Roll No. |
+|---|---|
+| G. Jeevana | 23AG1A05E8 |
+| G. Sivakumar Reddy | 23AG1A05F1 |
+| B. Saikumar | 23AG1A05D6 |
+
+**Guide:** Dr. P Chiranjeevi
+**Institution:** ACE Engineering College, Dept. of CSE
