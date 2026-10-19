@@ -113,6 +113,16 @@ flowchart TD
 
 ---
 
+## Results
+
+| Model | Input | Accuracy |
+|---|---|---|
+| Pretrained sentiment model (no aspect) | Text | 54.0% |
+| Fine-tuned transformer (aspect-aware) | Text + aspect | 72.4% |
+| MABSA (with image-to-text) | Text + aspect + image | To be added |
+
+*Dataset: Twitter-2017. Results are on a held-out 20% validation split and will be re-measured on the official test set.*
+
 ## Current Status
 
 - [x] Image captioning
