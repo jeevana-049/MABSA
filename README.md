@@ -109,7 +109,19 @@ flowchart TD
 |---|---|
 | Technologies | Python, OpenCV, Pandas, NumPy |
 | Tools / Frameworks | Transformers / Hugging Face, Git & GitHub, VS Code |
-| Dataset | MVSA-Multiple Dataset |
+| Dataset | Twitter-2017 (official train / dev / test split) |
+
+---
+
+## Dataset
+
+**Twitter-2017**: tweets with an image, a target aspect, and an aspect-level sentiment label (Negative, Neutral, Positive).
+
+| Split | Samples |
+|---|---|
+| Train | 3,562 |
+| Dev | 1,176 |
+| Test | 1,234 |
 
 ---
 
@@ -121,7 +133,9 @@ flowchart TD
 | Fine-tuned transformer (aspect-aware) | Text + aspect | 71.6% | 70.4% |
 | MABSA (with image-to-text) | Text + aspect + image | To be added | To be added |
 
-*Dataset: Twitter-2017 (official train / dev / test split). Results are on the official test set of 1,234 samples.*
+*Results are on the official Twitter-2017 test set of 1,234 samples.*
+
+---
 
 ## Current Status
 
@@ -129,9 +143,11 @@ flowchart TD
 - [x] OCR
 - [x] Three modes: text only, image only, text + image
 - [x] Basic aspect filtration and sentiment prediction
-- [ ] MVSA-Multiple dataset loading
+- [x] Twitter-2017 dataset loading (train / dev / test)
+- [x] Aspect-aware model training and evaluation (71.6% test accuracy)
+- [ ] Image-to-text on the dataset images
 - [ ] Aspect-oriented filtration (improved)
-- [ ] Model training and evaluation
+- [ ] Multimodal model training and evaluation
 - [ ] Explainable AI
 - [ ] Final demo
 
