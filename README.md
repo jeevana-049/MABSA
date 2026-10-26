@@ -115,12 +115,13 @@ flowchart TD
 
 ## Results
 
-Model	Input	Accuracy	Macro-F1
-Pretrained sentiment model (no aspect)	Text	56.0%	52.8%
-Fine-tuned transformer (aspect-aware)	Text + aspect	71.6%	70.4%
-MABSA (with image-to-text)	Text + aspect + image	To be added	To be added
+| Model | Input | Accuracy | Macro-F1 |
+|---|---|---|---|
+| Pretrained sentiment model (no aspect) | Text | 56.0% | 52.8% |
+| Fine-tuned transformer (aspect-aware) | Text + aspect | 71.6% | 70.4% |
+| MABSA (with image-to-text) | Text + aspect + image | To be added | To be added |
 
-*Dataset: Twitter-2017. Results are on a held-out 20% validation split and will be re-measured on the official test set.*
+*Dataset: Twitter-2017 (official train / dev / test split). Results are on the official test set of 1,234 samples.*
 
 ## Current Status
 
