@@ -123,17 +123,26 @@ flowchart TD
 | Dev | 1,176 |
 | Test | 1,234 |
 
+Image-to-text was run on all 2,908 unique images: image captions for every image, and OCR text found in 1,800 of them.
+
 ---
 
 ## Results
+
+Evaluated on the official Twitter-2017 test set (1,234 samples).
 
 | Model | Input | Accuracy | Macro-F1 |
 |---|---|---|---|
 | Pretrained sentiment model (no aspect) | Text | 56.0% | 52.8% |
 | Fine-tuned transformer (aspect-aware) | Text + aspect | 71.6% | 70.4% |
-| MABSA (with image-to-text) | Text + aspect + image | To be added | To be added |
+| Multimodal, no filtering | Text + aspect + caption + OCR | 71.1% | 69.6% |
+| **MABSA (aspect-oriented filtration)** | Text + aspect + caption + filtered OCR | **72.5%** | **70.9%** |
 
-*Results are on the official Twitter-2017 test set of 1,234 samples.*
+**Observations**
+- Making the model aspect-aware gives the largest gain (56.0% to 71.6%).
+- Adding all image text without filtering slightly lowers performance, because OCR text is often irrelevant to the aspect.
+- Aspect-oriented filtration of the image text gives the best result.
+- The gain over the text-only model is small and comes from a single training run. Repeated runs with different random seeds are planned.
 
 ---
 
@@ -142,12 +151,12 @@ flowchart TD
 - [x] Image captioning
 - [x] OCR
 - [x] Three modes: text only, image only, text + image
-- [x] Basic aspect filtration and sentiment prediction
 - [x] Twitter-2017 dataset loading (train / dev / test)
-- [x] Aspect-aware model training and evaluation (71.6% test accuracy)
-- [ ] Image-to-text on the dataset images
-- [ ] Aspect-oriented filtration (improved)
-- [ ] Multimodal model training and evaluation
+- [x] Aspect-aware model training and evaluation
+- [x] Image-to-text on the dataset images
+- [x] Aspect-oriented filtration of image text
+- [x] Multimodal model training and evaluation (72.5% test accuracy)
+- [ ] Repeated runs with different seeds
 - [ ] Explainable AI
 - [ ] Final demo
 
