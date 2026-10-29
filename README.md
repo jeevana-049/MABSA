@@ -157,7 +157,7 @@ Evaluated on the official Twitter-2017 test set (1,234 samples).
 - [x] Aspect-oriented filtration of image text
 - [x] Multimodal model training and evaluation (72.5% test accuracy)
 - [ ] Repeated runs with different seeds
-- [ ] Explainable AI
+- [x] Explainable AI
 - [ ] Final demo
 
 ---
