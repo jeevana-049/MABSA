@@ -138,6 +138,21 @@ Evaluated on the official Twitter-2017 test set (1,234 samples).
 | Multimodal, no filtering | Text + aspect + caption + OCR | 71.1% | 69.6% |
 | **MABSA (aspect-oriented filtration)** | Text + aspect + caption + filtered OCR | **72.5%** | **70.9%** |
 
+---
+
+## Run the Demo
+
+1. Download the trained model folder `mabsa_model` and place it next to `demo.py`.
+2. Install the requirements: `pip install -r requirements.txt`
+3. Run one of the three modes:
+
+```bash
+python demo.py --text "Great camera, but the delivery was slow." --aspect "camera"
+python demo.py --image photo.jpg
+python demo.py --text "..." --aspect "..." --image photo.jpg
+```
+---
+
 **Observations**
 - Making the model aspect-aware gives the largest gain (56.0% to 71.6%).
 - Adding all image text without filtering slightly lowers performance, because OCR text is often irrelevant to the aspect.
@@ -158,7 +173,7 @@ Evaluated on the official Twitter-2017 test set (1,234 samples).
 - [x] Multimodal model training and evaluation (72.5% test accuracy)
 - [ ] Repeated runs with different seeds
 - [x] Explainable AI
-- [ ] Final demo
+- [x] Final demo
 
 ---
 
