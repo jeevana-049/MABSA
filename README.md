@@ -129,14 +129,22 @@ Image-to-text was run on all 2,908 unique images: image captions for every image
 
 ## Results
 
-Evaluated on the official Twitter-2017 test set (1,234 samples).
+Evaluated on the official Twitter-2017 test set (1,234 samples). The two main models are the mean ± std over 3 random seeds.
 
 | Model | Input | Accuracy | Macro-F1 |
 |---|---|---|---|
 | Pretrained sentiment model (no aspect) | Text | 56.0% | 52.8% |
-| Fine-tuned transformer (aspect-aware) | Text + aspect | 71.6% | 70.4% |
-| Multimodal, no filtering | Text + aspect + caption + OCR | 71.1% | 69.6% |
-| **MABSA (aspect-oriented filtration)** | Text + aspect + caption + filtered OCR | **72.5%** | **70.9%** |
+| Fine-tuned transformer (aspect-aware) | Text + aspect | 71.3 ± 0.4% | 69.5 ± 0.2% |
+| Multimodal, no filtering (single run) | Text + aspect + caption + OCR | 71.1% | 69.6% |
+| **MABSA (aspect-oriented filtration)** | Text + aspect + caption + filtered OCR | **72.0 ± 0.4%** | **70.6 ± 0.6%** |
+
+---
+
+**Observations**
+- Making the model aspect-aware gives the largest gain (56.0% to about 71%).
+- Adding all image text without filtering does not help, because OCR text is often irrelevant to the aspect.
+- Aspect-oriented filtration of the image text gives the best average result, with a small but fairly consistent improvement over text-only (+0.7 accuracy, +1.1 Macro-F1).
+- The improvement is modest. Many tweet images carry little sentiment information.
 
 ---
 
@@ -151,14 +159,6 @@ python demo.py --text "Great camera, but the delivery was slow." --aspect "camer
 python demo.py --image photo.jpg
 python demo.py --text "..." --aspect "..." --image photo.jpg
 ```
----
-
-**Observations**
-- Making the model aspect-aware gives the largest gain (56.0% to 71.6%).
-- Adding all image text without filtering slightly lowers performance, because OCR text is often irrelevant to the aspect.
-- Aspect-oriented filtration of the image text gives the best result.
-- The gain over the text-only model is small and comes from a single training run. Repeated runs with different random seeds are planned.
-
 ---
 
 ## Current Status
